@@ -6,6 +6,7 @@ _oldUnit = _this select 1;
 if (isNull _oldUnit) exitWith {};
 
 waitUntil {alive player};
+player enableStamina false;
 
 //When LAN hosting, Bohemia's Zeus module code will cause the player lose Zeus access if the body is deleted after respawning.
 //This is a workaround that re-assigns curator to the player if their body is deleted.
