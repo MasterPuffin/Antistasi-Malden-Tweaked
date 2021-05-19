@@ -65,6 +65,7 @@ if  (
     _medicX addItem "FirstAidKit";
     _cured removeItem "FirstAidKit";
 };
+/*
 _timer = if ([_cured] call A3A_fnc_fatalWound) then
             {
             time + 35 + (random 20)
@@ -80,8 +81,8 @@ _timer = if ([_cured] call A3A_fnc_fatalWound) then
                 time + 15 + (random 10)
                 };
             };
-
-
+*/
+_timer = 10;
 _medicX setVariable ["timeToHeal",_timer];
 _medicX playMoveNow selectRandom medicAnims;
 _medicX setVariable ["animsDone",false];
