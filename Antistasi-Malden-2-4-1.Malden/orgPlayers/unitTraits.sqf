@@ -75,6 +75,9 @@ else
     };
 };
 
+//Overwrite load coeficient for all units
+player setUnitTrait ["loadCoef",5.0];
+
 if (isMultiPlayer) then
 {
 	sleep 5;
