@@ -19,9 +19,17 @@ if !(alive _cured) exitWith
     };
 if !([_medicX] call A3A_fnc_canFight) exitWith {if (_player) then {["Revive", "You are not able to revive anyone"] call A3A_fnc_customHint;};_healed};
 if  (
-        (!([_medicX] call A3A_fnc_isMedic && "Medikit" in (items _medicX))) &&
-        {(!("FirstAidKit" in (items _medicX))) &&
-        {(!("FirstAidKit" in (items _cured)))}}
+        (
+            !([_medicX] call A3A_fnc_isMedic && "Medikit" in (items _medicX))
+        )
+        &&
+        {
+            (!("FirstAidKit" in (items _medicX)) || !("Medikit" in (items _medicX)))
+            &&
+            {
+                (!("FirstAidKit" in (items _cured)))
+            }
+        }
     ) exitWith
 {
     if (_player) then {["Revive", format ["You or %1 need a First Aid Kit or Medikit to be able to revive",name _cured]] call A3A_fnc_customHint;};
