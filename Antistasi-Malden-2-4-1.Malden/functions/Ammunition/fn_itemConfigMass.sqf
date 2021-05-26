@@ -26,4 +26,7 @@ if (_mass == 0) then {
 	_mass = getNumber (_config >> "mass");
 };
 
+//Set mass to 0 to disable load
+_mass = 0;
+
 _mass;
