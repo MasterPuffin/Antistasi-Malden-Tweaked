@@ -20,7 +20,7 @@ if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) ex
 
 _checkX = false;
 //_distanceX = 500 - (([_boss,false] call A3A_fnc_fogCheck) * 450);
-_distanceX = 500;
+_distanceX = 25;
 
 {if ([_x,_distanceX] call A3A_fnc_enemyNearCheck) exitWith {_checkX = true}} forEach units _groupX;
 
