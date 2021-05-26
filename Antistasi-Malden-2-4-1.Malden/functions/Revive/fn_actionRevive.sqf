@@ -19,18 +19,16 @@ if !(alive _cured) exitWith
     };
 if !([_medicX] call A3A_fnc_canFight) exitWith {if (_player) then {["Revive", "You are not able to revive anyone"] call A3A_fnc_customHint;};_healed};
 if  (
-        (
-            !([_medicX] call A3A_fnc_isMedic && "Medikit" in (items _medicX))
-        )
+    !(
+        ([_medicX] call A3A_fnc_isMedic)
         &&
-        {
-            (!("FirstAidKit" in (items _medicX)) || !("Medikit" in (items _medicX)))
-            &&
-            {
-                (!("FirstAidKit" in (items _cured)))
-            }
-        }
-    ) exitWith
+        ("Medikit" in (items _medicX))
+    )
+    &&
+    !("FirstAidKit" in (items _medicX))
+    &&
+    !("FirstAidKit" in (items _cured))
+) exitWith
 {
     if (_player) then {["Revive", format ["You or %1 need a First Aid Kit or Medikit to be able to revive",name _cured]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_medicX groupChat "I'm out of FA kits and I have no Medikit!"};
